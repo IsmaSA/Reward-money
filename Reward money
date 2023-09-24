@@ -1,0 +1,48 @@
+
+
+reward_money <- function(Reward, authors = 2, Tonda = TRUE) {
+
+  if (Tonda == TRUE) {
+    message("Please Note that for Authors Tonda does not count, e.g., a paper with Tonda, Phillip and me, the number of authors is 2")
+    
+  Tonda = Reward * 0.10
+  
+  for_authors <- (Reward - Tonda) / authors
+  
+  #Taxes
+  result <- (for_authors * 0.87) * 0.85
+  
+ money_per_author <- result / authors
+  
+  result_df <- data.frame(
+    "Total_Reward" = Reward,
+    "Tonda_Share" = Tonda,
+    "Authors_Share_Before_Tax" = for_authors,
+    "Authors_Share_After_Tax" = result,
+    "For_each_author" = money_per_author)
+  return(result_df)
+  } else {
+    message("Unfortunately, Tonda is not part of this paper")
+    
+    for_authors <- Reward / authors
+    
+    # Taxes
+    result <- (for_authors * 0.87) * 0.85
+    
+    # Money per author
+    money_per_author <- result / authors
+    
+    result_df <- data.frame(
+      "Total_Reward" = Reward,
+      "Tonda_Share" = 0,
+      "Authors_Share_Before_Tax" = for_authors,
+      "Authors_Share_After_Tax" = result,
+      "For_each_author" = money_per_author
+    )
+    
+    return(result_df)
+  }
+}
+
+
+reward_money(Reward = 10000, authors = 2, Tonda = T)
