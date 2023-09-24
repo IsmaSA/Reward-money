@@ -1,5 +1,3 @@
-
-
 reward_money <- function(Reward, authors = 2, Tonda = TRUE) {
 
   if (Tonda == TRUE) {
@@ -12,14 +10,13 @@ reward_money <- function(Reward, authors = 2, Tonda = TRUE) {
   #Taxes
   result <- (for_authors * 0.87) * 0.85
   
- money_per_author <- result / authors
   
   result_df <- data.frame(
     "Total_Reward" = Reward,
     "Tonda_Share" = Tonda,
     "Authors_Share_Before_Tax" = for_authors,
     "Authors_Share_After_Tax" = result,
-    "For_each_author" = money_per_author)
+    "For_each_author" = result)
   return(result_df)
   } else {
     message("Unfortunately, Tonda is not part of this paper")
@@ -29,20 +26,15 @@ reward_money <- function(Reward, authors = 2, Tonda = TRUE) {
     # Taxes
     result <- (for_authors * 0.87) * 0.85
     
-    # Money per author
-    money_per_author <- result / authors
     
     result_df <- data.frame(
       "Total_Reward" = Reward,
       "Tonda_Share" = 0,
       "Authors_Share_Before_Tax" = for_authors,
       "Authors_Share_After_Tax" = result,
-      "For_each_author" = money_per_author
+      "For_each_author" = result
     )
     
     return(result_df)
   }
 }
-
-
-reward_money(Reward = 10000, authors = 2, Tonda = T)
