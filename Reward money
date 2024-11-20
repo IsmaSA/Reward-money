@@ -1,5 +1,5 @@
 
-# Version2.0 - this version include the share from people outside FROV
+# Version2.1 - this version include the share from people outside FROV
 
 reward_money <- function(Reward, authors = 2, Tonda = TRUE, N_outside.FROV = 0) {
   
