@@ -5,4 +5,4 @@ The function account for:
 - Tonda
 
 Example of calculation from Tonda: 
- <img align="center" src="Tonda.jpeg" width="300" style="margin-top: 80px">
+ <img align="center" src="Tonda.jpeg" width="500" style="margin-top: 80px">
