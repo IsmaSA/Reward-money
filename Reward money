@@ -14,10 +14,13 @@ reward_money <- function(Reward, authors = 2, Tonda = TRUE, N_outside.FROV = 0) 
   if(N_outside.FROV > 0){
     authors = authors + N_outside.FROV
   }
-  
+
   for_authors <- (Reward - Tonda_share) / authors
-  
-  author_after_tax <- (for_authors * 0.87) * 0.85
+
+  # From Tonda: 11.6 and 15% calculated from the same original base
+tax1 = (for_authors * 0.884)
+tax2 = (for_authors * 0.85)
+  author_after_tax <- for_authors - (tax1 + tax2)
   
   result_df <- data.frame(
     "Total_Reward" = Reward,
